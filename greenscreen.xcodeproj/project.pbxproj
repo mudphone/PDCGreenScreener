@@ -18,6 +18,9 @@
 		CF61C17516B9C57200844A60 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF61C17416B9C57100844A60 /* Default-568h@2x.png */; };
 		CF61C17816B9C57200844A60 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF61C17616B9C57200844A60 /* MainStoryboard.storyboard */; };
 		CF61C17B16B9C57200844A60 /* PDCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61C17A16B9C57200844A60 /* PDCViewController.m */; };
+		CF61C18416B9C8F800844A60 /* PDCGreenScreener.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61C18316B9C8F800844A60 /* PDCGreenScreener.m */; };
+		CF61C18616B9CC0300844A60 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF61C18516B9CC0300844A60 /* CoreImage.framework */; };
+		CF61C18816B9CC3D00844A60 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF61C18716B9CC3D00844A60 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,10 @@
 		CF61C17716B9C57200844A60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CF61C17916B9C57200844A60 /* PDCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDCViewController.h; sourceTree = "<group>"; };
 		CF61C17A16B9C57200844A60 /* PDCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCViewController.m; sourceTree = "<group>"; };
+		CF61C18216B9C8F800844A60 /* PDCGreenScreener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDCGreenScreener.h; sourceTree = "<group>"; };
+		CF61C18316B9C8F800844A60 /* PDCGreenScreener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDCGreenScreener.m; sourceTree = "<group>"; };
+		CF61C18516B9CC0300844A60 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CF61C18716B9CC3D00844A60 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF61C18816B9CC3D00844A60 /* MobileCoreServices.framework in Frameworks */,
+				CF61C18616B9CC0300844A60 /* CoreImage.framework in Frameworks */,
 				CF61C15F16B9C57100844A60 /* UIKit.framework in Frameworks */,
 				CF61C16116B9C57100844A60 /* Foundation.framework in Frameworks */,
 				CF61C16316B9C57100844A60 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +82,8 @@
 		CF61C15D16B9C57100844A60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF61C18716B9CC3D00844A60 /* MobileCoreServices.framework */,
+				CF61C18516B9CC0300844A60 /* CoreImage.framework */,
 				CF61C15E16B9C57100844A60 /* UIKit.framework */,
 				CF61C16016B9C57100844A60 /* Foundation.framework */,
 				CF61C16216B9C57100844A60 /* CoreGraphics.framework */,
@@ -83,6 +94,7 @@
 		CF61C16416B9C57100844A60 /* greenscreen */ = {
 			isa = PBXGroup;
 			children = (
+				CF61C18116B9C8E300844A60 /* GreenScreen */,
 				CF61C16D16B9C57100844A60 /* PDCAppDelegate.h */,
 				CF61C16E16B9C57100844A60 /* PDCAppDelegate.m */,
 				CF61C17616B9C57200844A60 /* MainStoryboard.storyboard */,
@@ -105,6 +117,15 @@
 				CF61C17416B9C57100844A60 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF61C18116B9C8E300844A60 /* GreenScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CF61C18216B9C8F800844A60 /* PDCGreenScreener.h */,
+				CF61C18316B9C8F800844A60 /* PDCGreenScreener.m */,
+			);
+			name = GreenScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +198,7 @@
 				CF61C16B16B9C57100844A60 /* main.m in Sources */,
 				CF61C16F16B9C57100844A60 /* PDCAppDelegate.m in Sources */,
 				CF61C17B16B9C57200844A60 /* PDCViewController.m in Sources */,
+				CF61C18416B9C8F800844A60 /* PDCGreenScreener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
