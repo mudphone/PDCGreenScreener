@@ -12,6 +12,10 @@
 @interface PDCViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UISlider *hueCenterSlider;
+@property (weak, nonatomic) IBOutlet UISlider *hueRangeSlider;
+@property (weak, nonatomic) IBOutlet UILabel *hueCenterLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hueRangeLabel;
 
 @property (nonatomic, strong) PDCGreenScreener *greenScreener;
 @property (nonatomic, strong) UIImage *originalImage;

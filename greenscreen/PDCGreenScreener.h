@@ -12,6 +12,9 @@
 @interface PDCGreenScreener : NSObject
 
 @property (nonatomic, strong) CIContext *context;
+@property (nonatomic, assign) CGFloat hueCenterDegrees;
+@property (nonatomic, assign) CGFloat hueRangeDegrees;
+
 
 - (id)initWithReusableContext:(CIContext *)context;
 

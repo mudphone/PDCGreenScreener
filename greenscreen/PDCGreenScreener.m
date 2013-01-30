@@ -20,6 +20,8 @@
     self = [super init];
     if (self) {
         _context = context;
+        _hueCenterDegrees = 120.0f;
+        _hueRangeDegrees = 60.0f;
     }
     return self;
 }
@@ -30,6 +32,16 @@
     
     _context = [CIContext contextWithOptions:nil];
     return _context;
+}
+
+- (void)hueCenterDegrees:(CGFloat)degrees
+{
+    _hueCenterDegrees = MIN(360.0f, MAX(0.0f, degrees));
+}
+
+- (void)hueRangeDegrees:(CGFloat)degrees
+{
+    _hueRangeDegrees = MIN(360.0f, MAX(0.0f, degrees));
 }
 
 
@@ -92,10 +104,8 @@ void rgbToHSV(float rgb[3], float hsv[3]) {
 
 - (UIImage *)backgroundlessImageFromInputImage:(UIImage *)inputImage
 {
-    float hueAngle = 120.0f;
-    float hueMargin = 60.0f;
-    float minHueAngle = hueAngle - hueMargin/2.0f;
-    float maxHueAngle = hueAngle + hueMargin/2.0f;
+    float minHueAngle = self.hueCenterDegrees - self.hueRangeDegrees/2.0f;
+    float maxHueAngle = self.hueCenterDegrees + self.hueRangeDegrees/2.0f;
     
     const unsigned int size = 64;
     size_t cubeDataSize = size * size * size * sizeof ( float ) * 4;

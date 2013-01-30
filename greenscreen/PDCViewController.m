@@ -81,6 +81,8 @@
     if ([chosenMediaType isEqual:(NSString *)kUTTypeImage]) {
         self.originalImage = info[UIImagePickerControllerEditedImage];
         
+        self.greenScreener.hueCenterDegrees = self.hueCenterSlider.value;
+        self.greenScreener.hueRangeDegrees = self.hueRangeSlider.value;
         UIImage *newImage = [self.greenScreener backgroundlessImageFromInputImage:self.originalImage];
         self.imageView.image = newImage;
     }
