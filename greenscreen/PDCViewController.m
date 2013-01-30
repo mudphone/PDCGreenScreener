@@ -11,6 +11,11 @@
 
 @interface PDCViewController ()
 - (void)pickMediaFromSource:(UIImagePickerControllerSourceType)sourceType;
+
+- (void)updateImage;
+- (void)cancelUpdateImage;
++ (NSString *)formattedFloatDegrees:(CGFloat)degrees;
+- (void)updateHueViewColor;
 @end
 
 @implementation PDCViewController
@@ -30,6 +35,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.greenScreener.hueCenterDegrees = self.hueCenterSlider.value;
     self.greenScreener.hueRangeDegrees  = self.hueRangeSlider.value;
+    [self updateHueViewColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +47,10 @@
 
 
 #pragma mark - Image Picker
+
+- (IBAction)imageTapped:(id)sender {
+    [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
+}
 
 - (IBAction)handleSelectPhotoPressed:(UIButton *)sender {
     [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
@@ -101,6 +111,9 @@
     if (self.originalImage == nil) return;
     UIImage *newImage = [self.greenScreener backgroundlessImageFromInputImage:self.originalImage];
     self.imageView.image = newImage;
+    
+    [self.view bringSubviewToFront:self.imageView];
+    self.selectPhotoButton.alpha = 0.0f;
 }
 
 - (void)cancelUpdateImage
@@ -113,9 +126,19 @@
     return [NSString stringWithFormat:@"%0.0fº", degrees];
 }
 
+- (void)updateHueViewColor
+{
+    CGFloat hue = self.greenScreener.hueCenterDegrees / 360.0f;
+    self.hueView.backgroundColor = [UIColor colorWithHue:hue
+                                              saturation:1.0f
+                                              brightness:1.0f
+                                                   alpha:1.0f];
+}
+
 - (IBAction)hueCenterValueChanged:(UISlider *)sender {
     self.greenScreener.hueCenterDegrees = sender.value;
     self.hueCenterLabel.text = [self.class formattedFloatDegrees:self.greenScreener.hueCenterDegrees];
+    [self updateHueViewColor];
     
     [self cancelUpdateImage];
     [self performSelector:@selector(updateImage) withObject:nil afterDelay:0.5f];

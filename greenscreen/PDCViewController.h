@@ -16,10 +16,13 @@
 @property (weak, nonatomic) IBOutlet UISlider *hueRangeSlider;
 @property (weak, nonatomic) IBOutlet UILabel *hueCenterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hueRangeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *selectPhotoButton;
 
 @property (nonatomic, strong) PDCGreenScreener *greenScreener;
 @property (nonatomic, strong) UIImage *originalImage;
+@property (weak, nonatomic) IBOutlet UIView *hueView;
 
+- (IBAction)imageTapped:(id)sender;
 - (IBAction)handleSelectPhotoPressed:(UIButton *)sender;
 - (IBAction)hueCenterValueChanged:(UISlider *)sender;
 - (IBAction)hueRangeValueChanged:(UISlider *)sender;
