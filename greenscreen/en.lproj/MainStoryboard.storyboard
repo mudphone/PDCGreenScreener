@@ -64,8 +64,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-Yk-Dh3"/>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="31f-tW-yBx"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-Yk-Dh3">
+                                <connections>
+                                    <action selector="hueCenterValueChanged:" destination="2" eventType="valueChanged" id="pum-iS-GgD"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="31f-tW-yBx">
+                                <connections>
+                                    <action selector="hueRangeValueChanged:" destination="2" eventType="valueChanged" id="3dS-jy-dgw"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -106,22 +114,6 @@
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PDCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDCViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleSelectPhotoPressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hueCenterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hueCenterSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="hueRangeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hueRangeSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

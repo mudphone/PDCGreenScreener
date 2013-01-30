@@ -28,6 +28,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.greenScreener.hueCenterDegrees = self.hueCenterSlider.value;
+    self.greenScreener.hueRangeDegrees  = self.hueRangeSlider.value;
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,11 +82,7 @@
     NSString *chosenMediaType = info[UIImagePickerControllerMediaType];
     if ([chosenMediaType isEqual:(NSString *)kUTTypeImage]) {
         self.originalImage = info[UIImagePickerControllerEditedImage];
-        
-        self.greenScreener.hueCenterDegrees = self.hueCenterSlider.value;
-        self.greenScreener.hueRangeDegrees = self.hueRangeSlider.value;
-        UIImage *newImage = [self.greenScreener backgroundlessImageFromInputImage:self.originalImage];
-        self.imageView.image = newImage;
+        [self updateImage];
     }
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
@@ -93,6 +91,42 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+#pragma mark - Hue value changes
+
+- (void)updateImage
+{
+    if (self.originalImage == nil) return;
+    UIImage *newImage = [self.greenScreener backgroundlessImageFromInputImage:self.originalImage];
+    self.imageView.image = newImage;
+}
+
+- (void)cancelUpdateImage
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(updateImage) object:nil];
+}
+
++ (NSString *)formattedFloatDegrees:(CGFloat)degrees
+{
+    return [NSString stringWithFormat:@"%0.0fº", degrees];
+}
+
+- (IBAction)hueCenterValueChanged:(UISlider *)sender {
+    self.greenScreener.hueCenterDegrees = sender.value;
+    self.hueCenterLabel.text = [self.class formattedFloatDegrees:self.greenScreener.hueCenterDegrees];
+    
+    [self cancelUpdateImage];
+    [self performSelector:@selector(updateImage) withObject:nil afterDelay:0.5f];
+}
+
+- (IBAction)hueRangeValueChanged:(UISlider *)sender {
+    self.greenScreener.hueRangeDegrees = sender.value;
+    self.hueRangeLabel.text = [self.class formattedFloatDegrees:self.greenScreener.hueRangeDegrees];
+
+    [self cancelUpdateImage];
+    [self performSelector:@selector(updateImage) withObject:nil afterDelay:0.5f];
 }
 
 

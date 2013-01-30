@@ -21,5 +21,7 @@
 @property (nonatomic, strong) UIImage *originalImage;
 
 - (IBAction)handleSelectPhotoPressed:(UIButton *)sender;
+- (IBAction)hueCenterValueChanged:(UISlider *)sender;
+- (IBAction)hueRangeValueChanged:(UISlider *)sender;
 
 @end
