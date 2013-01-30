@@ -14,7 +14,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRO-45-K3z">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="jrl-Rn-ubS"/>
+                                    <constraint firstAttribute="height" constant="320" type="user" id="jrl-Rn-ubS"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYT-at-2MM">
@@ -30,12 +30,10 @@
                                     <action selector="handleSelectPhotoPressed:" destination="2" eventType="touchUpInside" id="G0r-HH-Ri5"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-Yk-Dh3"/>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="31f-tW-yBx"/>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hue centerº" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkK-nN-N25">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="89" id="G0s-gZ-XNB"/>
-                                    <constraint firstAttribute="height" constant="21" id="oem-Ci-KNR"/>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="oem-Ci-KNR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -43,7 +41,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hue rangeº" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuL-Xo-Z7Q">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Y0q-GC-h1E"/>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="Y0q-GC-h1E"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -51,6 +49,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="120º" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOB-P5-wEF">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="DpC-lg-rE5"/>
                                     <constraint firstAttribute="width" constant="89" id="dDz-aU-Sr2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -58,36 +57,40 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="60º" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4F-n5-5Bc">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="De2-3P-KhQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-Yk-Dh3"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="31f-tW-yBx"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qOB-P5-wEF" firstAttribute="top" secondItem="nYT-at-2MM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6hF-xo-haB"/>
-                            <constraint firstItem="nYT-at-2MM" firstAttribute="top" secondItem="TRO-45-K3z" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7mn-1g-cME"/>
+                            <constraint firstItem="K8o-Yk-Dh3" firstAttribute="top" secondItem="nkK-nN-N25" secondAttribute="bottom" constant="-8" type="user" id="5lO-ui-FoL"/>
+                            <constraint firstItem="K8o-Yk-Dh3" firstAttribute="top" secondItem="nYT-at-2MM" secondAttribute="bottom" constant="21" type="user" id="6hw-YR-cnq"/>
+                            <constraint firstItem="nYT-at-2MM" firstAttribute="top" secondItem="TRO-45-K3z" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="7mn-1g-cME"/>
                             <constraint firstItem="TRO-45-K3z" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="BiO-eg-q3o"/>
                             <constraint firstAttribute="trailing" secondItem="qOB-P5-wEF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ISO-ws-oTt"/>
                             <constraint firstItem="G4F-n5-5Bc" firstAttribute="leading" secondItem="qOB-P5-wEF" secondAttribute="leading" type="default" id="ITG-SS-2Va"/>
                             <constraint firstAttribute="trailing" secondItem="nYT-at-2MM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="JPS-91-1wB"/>
-                            <constraint firstItem="G4F-n5-5Bc" firstAttribute="baseline" secondItem="zuL-Xo-Z7Q" secondAttribute="baseline" type="default" id="Lnu-PA-NoE"/>
-                            <constraint firstItem="zuL-Xo-Z7Q" firstAttribute="top" secondItem="K8o-Yk-Dh3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QC4-3I-JuG"/>
+                            <constraint firstItem="G4F-n5-5Bc" firstAttribute="baseline" secondItem="zuL-Xo-Z7Q" secondAttribute="baseline" type="user" id="Lnu-PA-NoE"/>
+                            <constraint firstItem="31f-tW-yBx" firstAttribute="top" secondItem="K8o-Yk-Dh3" secondAttribute="bottom" constant="20" type="user" id="STU-7R-5mI"/>
                             <constraint firstAttribute="trailing" secondItem="K8o-Yk-Dh3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SmQ-jw-cQp"/>
-                            <constraint firstAttribute="bottom" secondItem="31f-tW-yBx" secondAttribute="bottom" constant="92" id="XRa-z7-Xpe"/>
+                            <constraint firstItem="31f-tW-yBx" firstAttribute="top" secondItem="zuL-Xo-Z7Q" secondAttribute="bottom" constant="-9" type="user" id="U51-wU-IVm"/>
                             <constraint firstItem="nkK-nN-N25" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ycb-QR-NjV"/>
                             <constraint firstAttribute="trailing" secondItem="31f-tW-yBx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Yha-6y-qyy"/>
                             <constraint firstItem="TRO-45-K3z" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="bbd-iI-QEg"/>
                             <constraint firstItem="nYT-at-2MM" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cDG-cb-8pR"/>
                             <constraint firstItem="31f-tW-yBx" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cqO-hJ-5QQ"/>
-                            <constraint firstAttribute="bottom" secondItem="zuL-Xo-Z7Q" secondAttribute="bottom" constant="105" id="dcu-5R-mG0"/>
-                            <constraint firstItem="TRO-45-K3z" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="eHG-G9-pps"/>
-                            <constraint firstItem="nkK-nN-N25" firstAttribute="top" secondItem="nYT-at-2MM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lV1-hq-tGY"/>
+                            <constraint firstItem="TRO-45-K3z" firstAttribute="top" secondItem="3" secondAttribute="top" type="user" id="eHG-G9-pps"/>
                             <constraint firstItem="zuL-Xo-Z7Q" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nDW-SF-DDe"/>
                             <constraint firstItem="K8o-Yk-Dh3" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nfT-QA-ciN"/>
-                            <constraint firstItem="G4F-n5-5Bc" firstAttribute="top" secondItem="K8o-Yk-Dh3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="okG-2f-Suo"/>
-                            <constraint firstItem="qOB-P5-wEF" firstAttribute="baseline" secondItem="nkK-nN-N25" secondAttribute="baseline" type="default" id="tUp-Cf-jyP"/>
+                            <constraint firstItem="qOB-P5-wEF" firstAttribute="baseline" secondItem="nkK-nN-N25" secondAttribute="baseline" type="user" id="tUp-Cf-jyP"/>
                             <constraint firstItem="zuL-Xo-Z7Q" firstAttribute="trailing" secondItem="nkK-nN-N25" secondAttribute="trailing" type="default" id="u28-xO-hCo"/>
+                            <constraint firstItem="K8o-Yk-Dh3" firstAttribute="top" secondItem="qOB-P5-wEF" secondAttribute="bottom" constant="-8" type="user" id="yCo-e4-yHm"/>
                             <constraint firstAttribute="trailing" secondItem="G4F-n5-5Bc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zbU-1h-Gkm"/>
                         </constraints>
                     </view>
